@@ -1,6 +1,6 @@
 # 🎬 Sistema de Gerenciamento de Cinema
 
-**Universidade Católica de Brasília — Bacharelado em Engenharia de Software**  
+**Universidade Católica de Brasília 
 **Disciplina:** Laboratório de Banco de Dados — GPE17M40083  
 **Professor:** Samuel Novais Moura Júnior  
 **Semestre:** 2026/2
