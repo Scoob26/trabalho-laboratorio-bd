@@ -56,54 +56,6 @@ Cinema — Sistema completo de gerenciamento de um complexo cinematográfico, co
 
 ---
 
-## 🚀 Como executar o banco do zero
-
-### Pré-requisitos
-- MySQL 8.0 ou superior
-- Cliente MySQL (CLI, MySQL Workbench ou DBeaver)
-- Java 17+ e driver JDBC `mysql-connector-j` no classpath (para a aplicação)
-
-### Passos (banco)
-
-```bash
-# 1. Acesse o MySQL
-mysql -u root -p
-
-# 2. Crie o banco e todas as tabelas (DDL)
-source /caminho/para/sql/01_ddl.sql
-
-# 3. Carregue os dados de teste
-source /caminho/para/sql/02_carga.sql
-
-# 4. Execute as consultas de verificação
-source /caminho/para/sql/03_consultas.sql
-```
-
-Ou em linha única:
-
-```bash
-mysql -u root -p < sql/01_ddl.sql
-mysql -u root -p cinema_db < sql/02_carga.sql
-mysql -u root -p cinema_db < sql/03_consultas.sql
-```
-
-### Passos (aplicação Java)
-
-```bash
-# 1. Copie o template de configuração
-cp src/db/db.properties.exemplo src/db/db.properties
-
-# 2. Edite db.properties com suas credenciais locais
-
-# 3. Compile (ajuste o classpath ao local do conector JDBC)
-javac -cp ".;mysql-connector-j.jar" -d out \
-    src/Main.java src/model/*.java src/dao/*.java src/db/*.java
-
-# 4. Execute
-java -cp "out;mysql-connector-j.jar" Main
-```
-
----
 
 ## 🗄️ Entidades principais do modelo
 
