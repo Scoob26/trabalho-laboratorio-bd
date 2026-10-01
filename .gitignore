@@ -1,0 +1,23 @@
+# Credenciais do banco — NUNCA versionar
+# O arquivo real fica fora do Git; use db.properties.exemplo como referência
+src/db/db.properties
+db.properties
+
+# Compilados Java
+*.class
+*.jar
+out/
+bin/
+build/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+*.classpath
+*.project
+.settings/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

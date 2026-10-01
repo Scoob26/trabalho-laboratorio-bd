@@ -1,0 +1,4 @@
+# Exemplo de configuração — copie para db.properties e preencha com seus dados
+db.url=jdbc:mysql://localhost:3306/cinema_db?useSSL=false&serverTimezone=America/Sao_Paulo&allowPublicKeyRetrieval=true
+db.usuario=SEU_USUARIO
+db.senha=SUA_SENHA
