@@ -78,7 +78,7 @@ Cinema — Sistema completo de gerenciamento de um complexo cinematográfico, co
 
 ---
 
-## 📐 Principais decisões de modelagem
+ Principais decisões de modelagem
 
 | Decisão | Estratégia |
 |---------|-----------|
