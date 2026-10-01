@@ -1,4 +1,4 @@
-# 🎬 Sistema de Gerenciamento de Cinema
+ Sistema de Gerenciamento de Cinema
 
 Universidade Católica de Brasília 
 Disciplina: Laboratório de Banco de Dados  
