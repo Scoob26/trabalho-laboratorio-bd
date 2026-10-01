@@ -7,13 +7,13 @@ Professor: Samuel Novais Moura Júnior
 
 ---
 
-## 📋 Tema
+ Tema
 
 Cinema — Sistema completo de gerenciamento de um complexo cinematográfico, cobrindo o cadastro de filmes, classificação etária, distribuidoras, salas, sessões, ingressos, clientes, funcionários e promoções.
 
 ---
 
-## 👥 Integrantes
+ Integrantes
 
 | Nome | Matrícula
 |------|-----------
@@ -21,7 +21,7 @@ Cinema — Sistema completo de gerenciamento de um complexo cinematográfico, co
 
 ---
 
-## 🗂️ Estrutura do Repositório
+ Estrutura do Repositório
 
 ```
 .
@@ -57,7 +57,7 @@ Cinema — Sistema completo de gerenciamento de um complexo cinematográfico, co
 ---
 
 
-## 🗄️ Entidades principais do modelo
+ Entidades principais do modelo
 
 | Entidade | Tipo | Descrição |
 |----------|------|-----------|
