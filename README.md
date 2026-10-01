@@ -15,9 +15,9 @@
 
 ## 👥 Integrantes
 
-| Nome | Matrícula | Papel |
-|------|-----------|-------|
-| Átila | — | — |
+| Nome | Matrícula
+|------|-----------
+| Átila | UC25200771
 
 ---
 
