@@ -138,10 +138,5 @@ java -cp "out;mysql-connector-j.jar" Main
 | Desnorm. `Sessao.data_hora_fim` | Armazenado para evitar join na verificação de sobreposição |
 | Desnorm. `Ingresso.valor_final` | Snapshot no momento da venda para auditoria financeira |
 
----
 
-## 🔧 Uso de IA
 
-Este projeto utilizou assistente de inteligência artificial (Kiro / Claude — Anthropic) como apoio na estruturação do DDL, geração dos dados de carga, esboço dos DAOs e formatação dos documentos.
-
-Todas as decisões de modelagem, regras de negócio e consultas foram verificadas e validadas pela equipe. Qualquer integrante é capaz de explicar e defender cada parte do trabalho.
