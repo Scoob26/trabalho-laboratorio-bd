@@ -1,15 +1,15 @@
 # 🎬 Sistema de Gerenciamento de Cinema
 
-**Universidade Católica de Brasília 
-**Disciplina:** Laboratório de Banco de Dados — GPE17M40083  
-**Professor:** Samuel Novais Moura Júnior  
-**Semestre:** 2026/2
+Universidade Católica de Brasília 
+Disciplina: Laboratório de Banco de Dados  
+Professor: Samuel Novais Moura Júnior  
+
 
 ---
 
 ## 📋 Tema
 
-**Cinema** — Sistema completo de gerenciamento de um complexo cinematográfico, cobrindo o cadastro de filmes, classificação etária, distribuidoras, salas, sessões, ingressos, clientes, funcionários e promoções.
+Cinema — Sistema completo de gerenciamento de um complexo cinematográfico, cobrindo o cadastro de filmes, classificação etária, distribuidoras, salas, sessões, ingressos, clientes, funcionários e promoções.
 
 ---
 
@@ -52,7 +52,7 @@
         └── db.properties.exemplo   ← template com as chaves necessárias
 ```
 
-> **Nota:** o arquivo `src/db/db.properties` contém a senha do banco local e está listado no `.gitignore`. Use `db.properties.exemplo` como referência para criar o seu.
+> Nota: o arquivo `src/db/db.properties` contém a senha do banco local e está listado no `.gitignore`. Use `db.properties.exemplo` como referência para criar o seu.
 
 ---
 
