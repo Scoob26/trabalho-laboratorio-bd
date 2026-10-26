@@ -1,8 +1,7 @@
  Sistema de Gerenciamento de Cinema
 
 Universidade Católica de Brasília   
-Disciplina: Laboratório de Banco de Dados — GPE17M40083  
-Professor: Samuel Novais Moura Júnior  
+Disciplina: Laboratório de Banco de Dados  
 
 
 
