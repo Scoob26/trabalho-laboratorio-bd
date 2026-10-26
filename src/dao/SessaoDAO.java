@@ -98,9 +98,11 @@ public class SessaoDAO {
 
     // -------------------------------------------------------------------------
     // READ — buscar sessões por filme, com filtro opcional de status (B2)
+    // Usa parâmetro nullable em vez de concatenação de SQL (requisito B2).
     // -------------------------------------------------------------------------
     public List<Sessao> buscarPorFilme(int idFilme, String status) throws SQLException {
-        // status == null → sem filtro; caso contrário filtra pelo valor informado
+        // A cláusula (? IS NULL OR s.status = ?) permite passar NULL para
+        // "sem filtro" ou um valor para filtrar — sem nenhuma concatenação de String.
         String sql = """
             SELECT s.id_sessao, s.data_hora_inicio, s.data_hora_fim,
                    s.idioma, s.valor_ingresso_base, s.status,
@@ -114,14 +116,21 @@ public class SessaoDAO {
             JOIN Filme f  ON f.id_filme = s.id_filme
             JOIN Sala  sa ON sa.id_sala = s.id_sala
             WHERE s.id_filme = ?
-            """ + (status != null ? "  AND s.status = ?\n" : "") + """
+              AND (? IS NULL OR s.status = ?)
             ORDER BY s.data_hora_inicio ASC
             """;
         List<Sessao> lista = new ArrayList<>();
         try (Connection con = ConexaoDB.getConexao();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, idFilme);
-            if (status != null) ps.setString(2, status);
+            // parâmetro 2 e 3 = mesmo valor (IS NULL elimina filtro se null)
+            if (status != null) {
+                ps.setString(2, status);
+                ps.setString(3, status);
+            } else {
+                ps.setNull(2, Types.VARCHAR);
+                ps.setNull(3, Types.VARCHAR);
+            }
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) lista.add(mapear(rs));
             }
@@ -155,6 +164,36 @@ public class SessaoDAO {
             }
         }
         return null;
+    }
+
+    // -------------------------------------------------------------------------
+    // DELETE — cancela a sessão (soft delete via status 'Cancelada')
+    // Não apaga do banco; usa ROLLBACK se o UPDATE falhar.
+    // -------------------------------------------------------------------------
+    public boolean cancelar(int idSessao) throws SQLException {
+        Connection con = ConexaoDB.getConexao();
+        con.setAutoCommit(false);
+        try {
+            String statusAtual = obterStatusAtual(con, idSessao);
+            if (statusAtual == null) throw new SQLException("Sessão não encontrada.");
+            if ("Cancelada".equals(statusAtual)) {
+                con.rollback();
+                throw new SQLException("Sessão já está cancelada.");
+            }
+            String sql = "UPDATE Sessao SET status = 'Cancelada' WHERE id_sessao = ?";
+            try (PreparedStatement ps = con.prepareStatement(sql)) {
+                ps.setInt(1, idSessao);
+                ps.executeUpdate();
+            }
+            registrarHistorico(con, idSessao, statusAtual, "Cancelada", null);
+            con.commit();
+            return true;
+        } catch (SQLException e) {
+            con.rollback();
+            throw e;
+        } finally {
+            con.setAutoCommit(true);
+        }
     }
 
     // -------------------------------------------------------------------------

@@ -1,4 +1,26 @@
+# ============================================================================
 # Exemplo de configuração — copie para db.properties e preencha com seus dados
+# O arquivo db.properties real NÃO deve ser versionado (.gitignore já o exclui)
+# ============================================================================
+
+# URL de conexão com o banco
 db.url=jdbc:mysql://localhost:3306/cinema_db?useSSL=false&serverTimezone=America/Sao_Paulo&allowPublicKeyRetrieval=true
-db.usuario=SEU_USUARIO
-db.senha=SUA_SENHA
+
+# Usuário administrador (usado pelos DAOs — CRUD completo)
+db.usuario=root
+db.senha=SUA_SENHA_ROOT
+
+# Perfil atendente — criado por 04_etapa2_seguranca.sql
+# Privilégios: SELECT em Filme/Sala/Sessao; INSERT/UPDATE em Cliente e Ingresso
+db.usuario.atendente=cinema_atendente
+db.senha.atendente=Ate#2026!Cinema
+
+# Perfil gerente — criado por 04_etapa2_seguranca.sql
+# Privilégios: CRUD em Filme/Sala/Sessao/Promocao; SELECT em Cliente/Ingresso
+db.usuario.gerente=cinema_gerente
+db.senha.gerente=Ger#2026!Cinema
+
+# Perfil auditor — criado por 04_etapa2_seguranca.sql
+# Privilégios: SELECT apenas em tabelas de auditoria
+db.usuario.auditor=cinema_auditor
+db.senha.auditor=Aud#2026!Cinema
